@@ -1,10 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using TMPro;
 
-public class Tests : MonoBehaviour
+public class NewBehaviourScript : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -16,13 +14,5 @@ public class Tests : MonoBehaviour
     void Update()
     {
         
-    }
-
-
-
-
-    void TestStart()
-    {
-           
     }
 }
