@@ -1,13 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using TMPro;
 
 public class Player_NPC_Talk : Singleton<NPCtalking>
 {
     public NPC_talk CurrentNPCTALKTYPE;
     [SerializeField] GameObject textPanel;
-    [SerializeField] Text text;
+    [SerializeField] GameObject choice;
+    public TMP_Text text;
+    public string[] NPC_Text;
     void Start()
     {
 
@@ -22,43 +24,40 @@ public class Player_NPC_Talk : Singleton<NPCtalking>
             if (Input.GetKeyDown(KeyCode.E))
             {
 
-
-
+                Cursor.lockState = CursorLockMode.Confined;
+                Cursor.visible = true;
                 textPanel.SetActive(true);
+                choice.SetActive(true);
 
                 switch (CurrentNPCTALKTYPE)
                 {
                     case NPC_talk.NPC0:
                         Debug.Log("NPC0");
-                        text.text = "NPC0임아무튼 그럼";
-
-
+                        text.text = NPC_Text[0];
                         break;
+
                     case NPC_talk.NPC1:
                         Debug.Log("NPC1");
-                        text.text = "아이이이잉";
+                        text.text = NPC_Text[1];
 
                         break;
                     case NPC_talk.NPC2:
-                        text.text = "쁘링클 마렵노";
+                        text.text = NPC_Text[2];
 
                         break;
-                    default:
-                        Debug.Log("ㅂㄷㅂㄷ");
-                        break;
+                  
                 }
-
-
-
-
             }
+           
         }
-            else
-            {
-                textPanel.SetActive(false);
-                text.text = "";
+        else
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+            textPanel.SetActive(false);
+            text.text = "";
 
-            }
+        }
 
     }
 }

@@ -5,7 +5,11 @@ using UnityEngine;
 public class Cube_Active : MonoBehaviour
 {
     [SerializeField] Vector3 spwon;
-    // Start is called before the first frame update
+   
+    private void Awake()
+    {
+        
+    }
     void Start()
     {
         

@@ -15,6 +15,7 @@ public class NPCtalking : Singleton<NPCtalking>
     public bool Lookplayer = false;
     public NPC_talk _npc_talk;
     public bool NPC_talking = false;
+    public string[] answer;
     protected override void Awake()
     {
         

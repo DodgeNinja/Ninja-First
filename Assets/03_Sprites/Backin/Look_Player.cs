@@ -33,7 +33,7 @@ public class Look_Player : Singleton<NPCtalking>
     {
         if (other.tag == "Player")
         {
-            im.interaction = true;
+            //im.interaction = true;
             
             Vector3 look = other.transform.position - transform.position;
             transform.rotation = Quaternion.LookRotation(new Vector3(look.x, 0, look.z) * Time.deltaTime);

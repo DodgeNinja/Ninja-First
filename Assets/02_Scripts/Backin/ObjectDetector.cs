@@ -44,9 +44,8 @@ public class ObjectDetector : MonoBehaviour
                 if (ButCkl == false)
                 {
                     ButCkl = true;
-                    StartCoroutine(Button_Down());
+                    StartCoroutine(Button_Down()); //버튼 들감
 
-                    Debug.Log("버튼 들어가라");
 
                 }
 
