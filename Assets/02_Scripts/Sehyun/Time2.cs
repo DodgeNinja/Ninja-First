@@ -17,7 +17,7 @@ public class Time2 : MonoBehaviour
         
         
             time += 500*Time.deltaTime;
-            text_time[0].text = ( (int)time / 3600).ToString();
+            text_time[0].text = ( (int)time / 3600%12).ToString();
             text_time[1].text = ((int)time / 60 % 60).ToString();
             text_time[2].text = ((int)time % 60).ToString();
         
