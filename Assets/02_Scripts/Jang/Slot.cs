@@ -22,21 +22,13 @@ public class Slot : MonoBehaviour
     private void Update()
     {
         image.sprite = itemSprite;
-        if(Input.GetMouseButtonDown(0))
-            TouchSlot();
     }
 
-    private void TouchSlot()
+    public void TouchSlot()
     {
-        Vector2 touchPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        RaycastHit2D hit = Physics2D.Raycast(touchPos, Camera.main.transform.forward);
-        Debug.Log(hit.collider);
-        if (hit.collider == collider2D)
-        {
-            Debug.Log("slotNull");
-            //플레이어한테 줄 버프함수 넣기
-            SlotReset();
-        }
+        Debug.Log("slotNull");
+        //플레이어한테 줄 버프함수 넣기
+        SlotReset();
     }
 
     void SlotReset()
