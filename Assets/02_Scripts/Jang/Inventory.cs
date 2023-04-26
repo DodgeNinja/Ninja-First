@@ -15,7 +15,7 @@ public class Inventory : MonoBehaviour
 
         slotList.Sort((a, b) => a.gameObject.transform.GetSiblingIndex()
         .CompareTo(b.gameObject.transform.GetSiblingIndex()));
-
+        
         for (int i = 0; i < slots.Length; i++)
         {
             if (slotList[i].item == ItemEnum.Null)
