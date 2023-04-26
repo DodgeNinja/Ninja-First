@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Enum;
+using UnityEngine.EventSystems;
 
 public class Slot : MonoBehaviour
 {
@@ -23,16 +24,11 @@ public class Slot : MonoBehaviour
         image.sprite = itemSprite;
     }
 
-    private void TouchSlot()
+    public void TouchSlot()
     {
-        Vector2 touchPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        RaycastHit2D hit = Physics2D.Raycast(touchPos, Camera.main.transform.forward);
-
-        if (hit.collider == collider2D)
-        {
-            //ÇÃ·¹ÀÌ¾îÇÑÅ× ÁÙ ¹öÇÁÇÔ¼ö ³Ö±â
-            SlotReset();
-        }
+        Debug.Log("slotNull");
+        //í”Œë ˆì´ì–´í•œí…Œ ì¤„ ë²„í”„í•¨ìˆ˜ ë„£ê¸°
+        SlotReset();
     }
 
     void SlotReset()
