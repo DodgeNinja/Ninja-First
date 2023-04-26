@@ -202,7 +202,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 5
-  m_FollowOffset: {x: 0, y: 0.4332158, z: -8.205672}
+  m_FollowOffset: {x: 0, y: 2.084251, z: -7.823114}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -892,6 +892,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cube (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 2904904165675067253, guid: b8b75707b4b8b7d489215c74555795c2, type: 3}
+      propertyPath: text
+      value: 
+      objectReference: {fileID: 1842884588}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8b75707b4b8b7d489215c74555795c2, type: 3}
 --- !u!1001 &1048969119
@@ -1037,7 +1041,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 5
-  m_FollowOffset: {x: 0, y: 0.4332158, z: -8.205672}
+  m_FollowOffset: {x: 0, y: 2.084251, z: -7.823114}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -1334,7 +1338,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ceaf6f2cd98d6304e81d82a24cc7ee55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  choice: {fileID: 2133597029}
+  tmp: {fileID: 1842884588}
   Npc_choice1:
   - tlqkf
   - anj
@@ -1398,8 +1402,16 @@ PrefabInstance:
       value: Cube (5)
       objectReference: {fileID: 0}
     - target: {fileID: 2904904165675067253, guid: b8b75707b4b8b7d489215c74555795c2, type: 3}
+      propertyPath: text
+      value: 
+      objectReference: {fileID: 1842884588}
+    - target: {fileID: 2904904165675067253, guid: b8b75707b4b8b7d489215c74555795c2, type: 3}
       propertyPath: _npc_talk
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2904904165675067253, guid: b8b75707b4b8b7d489215c74555795c2, type: 3}
+      propertyPath: answer.Array.size
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8b75707b4b8b7d489215c74555795c2, type: 3}
@@ -2562,6 +2574,10 @@ PrefabInstance:
       value: Cube (6)
       objectReference: {fileID: 0}
     - target: {fileID: 2904904165675067253, guid: b8b75707b4b8b7d489215c74555795c2, type: 3}
+      propertyPath: text
+      value: 
+      objectReference: {fileID: 1842884588}
+    - target: {fileID: 2904904165675067253, guid: b8b75707b4b8b7d489215c74555795c2, type: 3}
       propertyPath: _npc_talk
       value: 2
       objectReference: {fileID: 0}
@@ -2851,7 +2867,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 5
-  m_FollowOffset: {x: 0, y: 0.4332158, z: -8.205672}
+  m_FollowOffset: {x: 0, y: 2.084251, z: -7.823114}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -2919,7 +2935,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2133597030
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2927,7 +2943,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2133597029}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

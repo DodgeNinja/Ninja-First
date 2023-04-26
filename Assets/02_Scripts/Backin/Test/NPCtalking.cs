@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
     public enum NPC_talk : short
     {
         NPC0 = 0,
@@ -12,10 +13,12 @@ using UnityEngine;
     }
 public class NPCtalking : Singleton<NPCtalking>
 {
+   
     public bool Lookplayer = false;
     public NPC_talk _npc_talk;
     public bool NPC_talking = false;
-    public string[] answer;
+    public bool selection_window = false;
+
     protected override void Awake()
     {
         

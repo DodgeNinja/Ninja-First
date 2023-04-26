@@ -5,16 +5,16 @@ using TMPro;
 
 public class NpcTextButton : Singleton<NPCtalking>
 {
-    TMP_Text tmp;
-    [SerializeField] GameObject choice;
-    Player_NPC_Talk player_npc_talk;
+    [SerializeField] TMP_Text tmp;
+        
+   
     public string[] Npc_choice1;
     public string[] Npc_choice2;
     public string[] Npc_choice3;
 
     protected override void Awake()
     {
-        player_npc_talk = GetComponent<Player_NPC_Talk>();
+        
     }
 
     // Start is called before the first frame update
@@ -31,20 +31,19 @@ public class NpcTextButton : Singleton<NPCtalking>
 
     public void one()
     {
-      
-        player_npc_talk.text.text = Npc_choice1[0];
-        
-        
-       
+        tmp.text = Npc_choice1[0];
+        NPCtalking.instance.selection_window = true;
 
     }
     public void two()
     {
-        player_npc_talk.text.text = Npc_choice2[0];   
+        tmp.text = Npc_choice2[0];
+        NPCtalking.instance.selection_window = true;
     }
 
     public void three()
     {
-        player_npc_talk.text.text = Npc_choice3[0];
+        tmp.text = Npc_choice3[0];
+        NPCtalking.instance.selection_window = true;
     }
 }
