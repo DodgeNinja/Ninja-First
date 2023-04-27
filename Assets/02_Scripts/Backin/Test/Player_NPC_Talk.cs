@@ -7,9 +7,12 @@ public class Player_NPC_Talk : Singleton<NPCtalking>
 {
     public NPC_talk CurrentNPCTALKTYPE;
     [SerializeField] GameObject textPanel;
-    [SerializeField] GameObject choice;
+    [SerializeField] GameObject choice_NPC;
+    [SerializeField] GameObject choice_trader;
     public TMP_Text text;
-    public string[] NPC_Text;
+    public string[] NPC_Text1;
+    public string[] NPC_Text2;
+    public string[] NPC_Text3;
     void Start()
     {
 
@@ -27,22 +30,25 @@ public class Player_NPC_Talk : Singleton<NPCtalking>
                 Cursor.lockState = CursorLockMode.Confined;
                 Cursor.visible = true;
                 textPanel.SetActive(true);
-                choice.SetActive(true);
+                
 
                 switch (CurrentNPCTALKTYPE)
                 {
-                    case NPC_talk.NPC0:
-                        Debug.Log("NPC0");
-                        text.text = NPC_Text[0];
+                    case NPC_talk.NPC:
+                        choice_NPC.SetActive(true);
+                        Debug.Log("NPC");
+                        text.text = NPC_Text1[0];
                         break;
 
-                    case NPC_talk.NPC1:
-                        Debug.Log("NPC1");
-                        text.text = NPC_Text[1];
+                    case NPC_talk.NPC_trader:
+                        choice_trader.SetActive(true);
+                        Debug.Log("trader");
+                        text.text = NPC_Text2[0];
 
                         break;
-                    case NPC_talk.NPC2:
-                        text.text = NPC_Text[2];
+                    case NPC_talk.teacher:
+                        Debug.Log("teacher");
+                        text.text = NPC_Text3[0];
 
                         break;
                   

@@ -16,9 +16,10 @@ public class NpcButtonExit : Singleton<NPCtalking>
     {
         if (NPCtalking.instance.selection_window == true)
         {
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonUp(0))
             {
                 choice.SetActive(false);
+                Debug.Log("√ ¿ÃΩ∫∞° ∆ﬁΩ∫∞° æ»µ≈");
                 NPCtalking.instance.selection_window = false;
             }
 

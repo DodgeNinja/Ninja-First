@@ -5,9 +5,9 @@ using UnityEngine;
 
     public enum NPC_talk : short
     {
-        NPC0 = 0,
-        NPC1 = 1,
-        NPC2 = 2,
+        NPC = 0,
+        NPC_trader = 1,
+        teacher = 2,
         NPC3 = 3
             
     }
