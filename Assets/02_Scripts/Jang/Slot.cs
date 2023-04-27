@@ -9,13 +9,14 @@ public class Slot : MonoBehaviour
 {
     public ItemEnum item;
     public Sprite itemSprite;
+    public float boostSpeed;
+    public float boostTime;
+    public int plusWillPower;
 
-    private new BoxCollider2D collider2D;
     private Image image;
 
     private void Awake()
     {
-        collider2D = gameObject.GetComponent<BoxCollider2D>();
         image = gameObject.GetComponent<Image>();
     }
 
@@ -27,7 +28,17 @@ public class Slot : MonoBehaviour
     public void TouchSlot()
     {
         Debug.Log("slotNull");
-        //플레이어한테 줄 버프함수 넣기
+
+        switch (item)
+        {
+            case ItemEnum.Cola:
+                StatManager.instance.PlayerBoost(boostSpeed, boostTime);
+                break;
+            case ItemEnum.Juice:
+                StatManager.instance.willPower += plusWillPower;
+                break;
+        }
+
         SlotReset();
     }
 

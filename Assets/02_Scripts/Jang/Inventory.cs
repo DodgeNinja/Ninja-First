@@ -56,6 +56,9 @@ public class Inventory : MonoBehaviour
             {
                 slots[i].item = item.item;
                 slots[i].itemSprite = item.itemSprite;
+                slots[i].boostSpeed = item.boostSpeed;
+                slots[i].boostTime = item.boostTime;
+                slots[i].plusWillPower = item.plusWillPower;
                 break;
             }
         }

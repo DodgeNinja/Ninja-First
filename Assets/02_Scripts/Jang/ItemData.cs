@@ -9,4 +9,7 @@ public class ItemData : ScriptableObject
 {
     public ItemEnum item;
     public Sprite itemSprite;
+    public float boostSpeed;
+    public float boostTime;
+    public int plusWillPower;
 }

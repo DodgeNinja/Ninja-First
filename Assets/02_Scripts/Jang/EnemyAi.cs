@@ -13,6 +13,7 @@ public class EnemyAi : MonoBehaviour
     [SerializeField] private float maxRangeDistance;
     [SerializeField] private LayerMask playerMask;
 
+    private StatManager statManager;
     NavMeshAgent agent;
     GameObject player;
 
@@ -22,6 +23,7 @@ public class EnemyAi : MonoBehaviour
     {
         player = GameObject.FindWithTag("Player");
 
+        statManager = FindObjectOfType<StatManager>();
         agent = gameObject.GetComponent<NavMeshAgent>();
         agent.autoTraverseOffMeshLink = true;
         agent.updateRotation = true;
@@ -89,13 +91,13 @@ public class EnemyAi : MonoBehaviour
         {
             state = State.idle;
 
+            statManager.willPower -= 20;
+
             while (dieDistance < 10)
             {
                 transform.position = RandomPos();
                 dieDistance = Vector3.Distance(transform.position, player.transform.position);
             }
-
-            //플레이어에 줄 디버프 함수를 여기다가 넣어
         }
     }
 }
