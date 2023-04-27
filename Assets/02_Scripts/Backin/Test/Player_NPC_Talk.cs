@@ -9,6 +9,7 @@ public class Player_NPC_Talk : Singleton<NPCtalking>
     [SerializeField] GameObject textPanel;
     [SerializeField] GameObject choice_NPC;
     [SerializeField] GameObject choice_trader;
+    [SerializeField] GameObject choice_teacher;
     public TMP_Text text;
     public string[] NPC_Text1;
     public string[] NPC_Text2;
@@ -21,18 +22,18 @@ public class Player_NPC_Talk : Singleton<NPCtalking>
     // Update is called once per frame
     void Update()
     {
-        if (NPCtalking.instance.Lookplayer == true)
+        if (NPCtalking.instance.Lookplayer == true) //NPC가 나를 보고있다면
         {
 
-            if (Input.GetKeyDown(KeyCode.E))
+            if (Input.GetKeyDown(KeyCode.E)) //E를 눌렀다면
             {
 
-                Cursor.lockState = CursorLockMode.Confined;
-                Cursor.visible = true;
-                textPanel.SetActive(true);
+                Cursor.lockState = CursorLockMode.Confined; //카메라 고정을 풀어주고
+                Cursor.visible = true; //마우스 포인터를 보여준다
+                textPanel.SetActive(true); //대화창 키기
                 
 
-                switch (CurrentNPCTALKTYPE)
+                switch (CurrentNPCTALKTYPE)//닿은놈의 이넘
                 {
                     case NPC_talk.NPC:
                         choice_NPC.SetActive(true);
@@ -47,6 +48,7 @@ public class Player_NPC_Talk : Singleton<NPCtalking>
 
                         break;
                     case NPC_talk.teacher:
+                        choice_teacher.SetActive(true);
                         Debug.Log("teacher");
                         text.text = NPC_Text3[0];
 
@@ -56,7 +58,7 @@ public class Player_NPC_Talk : Singleton<NPCtalking>
             }
            
         }
-        else
+        else// NPC가 나를 안보고 있다면
         {
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
