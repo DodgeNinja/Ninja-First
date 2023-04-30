@@ -7,8 +7,8 @@ using UnityEngine;
     {
         NPC = 0,
         NPC_trader = 1,
-        teacher = 2,
-        NPC3 = 3
+        NPC_teacher = 2,
+        NPC_gay = 3
             
     }
 public class NPCtalking : Singleton<NPCtalking>

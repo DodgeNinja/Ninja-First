@@ -34,19 +34,19 @@ public class NpcTextButton : Singleton<NPCtalking>
     #region 기본NPC대화
     public void NPCnum1_NPC()
     {
-        tmp.text = Npc_choice1[0];
+        StartCoroutine(NPCnum(Npc_choice1[0]));
         NPCtalking.instance.selection_window = true;
 
     }
     public void NPCnum2_NPC()
     {
-        tmp.text = Npc_choice2[0];
+        StartCoroutine(NPCnum(Npc_choice2[0]));
         NPCtalking.instance.selection_window = true;
     }
 
     public void NPCnum3_NPC()
     {
-        tmp.text = Npc_choice3[0];
+        StartCoroutine(NPCnum(Npc_choice3[0]));
         NPCtalking.instance.selection_window = true;
     }
     #endregion 끝
@@ -54,17 +54,17 @@ public class NpcTextButton : Singleton<NPCtalking>
     #region 상인NPC대화
     public void NPCnum1_trader()
     {
-        tmp.text = Npc_choice1[1];
+        StartCoroutine(NPCnum(Npc_choice1[1]));
         NPCtalking.instance.selection_window = true;
     }
     public void NPCnum2_trader()
     {
-        tmp.text = Npc_choice2[1];
+        StartCoroutine(NPCnum(Npc_choice2[1]));
         NPCtalking.instance.selection_window = true;
     }
     public void NPCnum3_trader()
     {
-        tmp.text = Npc_choice3[1];
+        StartCoroutine(NPCnum(Npc_choice3[1]));
         NPCtalking.instance.selection_window = true;
     }
     #endregion 끝
@@ -73,12 +73,12 @@ public class NpcTextButton : Singleton<NPCtalking>
 
     public void NPCnum1_teacher()
     {
-        tmp.text = Npc_choice1[2];
+        StartCoroutine(NPCnum(Npc_choice1[2]));
         NPCtalking.instance.selection_window = true;
     }
     public void NPCnum2_teacher()
     {
-        tmp.text = Npc_choice2[2];
+        StartCoroutine(NPCnum(Npc_choice2[2]));
         if (Random.Range(0, 101) <= 50)
         {
 
@@ -94,8 +94,30 @@ public class NpcTextButton : Singleton<NPCtalking>
     }
     public void NPCnum3_teacher()
     {
-        tmp.text = Npc_choice3[2];
+        StartCoroutine(NPCnum(Npc_choice3[2]));
         NPCtalking.instance.selection_window = true;
     }
     #endregion 끝
+
+    #region 게이
+    public void NPCnum1_gay()
+    {
+        StartCoroutine(NPCnum(Npc_choice1[3]));
+        NPCtalking.instance.selection_window = true;
+    }
+    public void NPCnum2_gay()
+    {
+        StartCoroutine(NPCnum(Npc_choice2[3]));
+        NPCtalking.instance.selection_window = true;
+    }
+    #endregion 끝
+
+    IEnumerator NPCnum(string dk)
+    {
+        for (int i = 0; i <= dk.Length; i++)
+        {
+            tmp.text = dk.Substring(0, i);
+            yield return new WaitForSeconds(0.1f);
+        }
+    }
 }
