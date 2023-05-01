@@ -1120,6 +1120,8 @@ GameObject:
   - component: {fileID: 8285691603516542242}
   - component: {fileID: 2407297016456030003}
   - component: {fileID: 7309207462844656240}
+  - component: {fileID: 5339441151421157792}
+  - component: {fileID: 3101102784133295717}
   m_Layer: 0
   m_Name: Sci_Fi_Character_08_01
   m_TagString: Untagged
@@ -1211,6 +1213,54 @@ MonoBehaviour:
   Cam: {fileID: 0}
   turnSmoothTime: 0.1
   turnSmoothVelocity: 0
+--- !u!114 &5339441151421157792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3411279790089948642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdf26844cc10ab345837263cb6539c63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textPanel: {fileID: 0}
+  choice_NPC: {fileID: 0}
+  choice_trader: {fileID: 0}
+  choice_teacher: {fileID: 0}
+  choice_gay: {fileID: 0}
+  im: {fileID: 0}
+  text: {fileID: 0}
+  NPC_Text1: []
+  NPC_Text2: []
+  NPC_Text3: []
+  NPC_Text4: []
+  CurrentNPCTALKTYPE: 0
+--- !u!114 &3101102784133295717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3411279790089948642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdf26844cc10ab345837263cb6539c63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textPanel: {fileID: 0}
+  choice_NPC: {fileID: 0}
+  choice_trader: {fileID: 0}
+  choice_teacher: {fileID: 0}
+  choice_gay: {fileID: 0}
+  im: {fileID: 0}
+  text: {fileID: 0}
+  NPC_Text1: []
+  NPC_Text2: []
+  NPC_Text3: []
+  NPC_Text4: []
+  CurrentNPCTALKTYPE: 0
 --- !u!1 &3481615251951323549
 GameObject:
   m_ObjectHideFlags: 0

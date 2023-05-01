@@ -3,17 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using System;
+using UnityEngine.UI;
 
 
 
 public class Player_NPC_Talk : Singleton<NPCtalking>
 {
+
+    
+
     [SerializeField] GameObject textPanel;
     [SerializeField] GameObject choice_NPC;
     [SerializeField] GameObject choice_trader;
     [SerializeField] GameObject choice_teacher;
     [SerializeField] GameObject choice_gay;
 
+   
     public TMP_Text text;
     public string[] NPC_Text1;
     public string[] NPC_Text2;
@@ -30,7 +35,7 @@ public class Player_NPC_Talk : Singleton<NPCtalking>
     private string a = "이 NPC와는 이미 대화 했습니다.";
     void Start()
     {
-
+       
     }
 
     // Update is called once per frame
@@ -38,13 +43,14 @@ public class Player_NPC_Talk : Singleton<NPCtalking>
     {
         if (NPCtalking.instance.Lookplayer == true) //NPC가 나를 보고있다면
         {
-
+          
             if (Input.GetKeyDown(KeyCode.E)) //E를 눌렀다면
             {
+              
                 text.text = "";
                 Cursor.lockState = CursorLockMode.Confined; //카메라 고정을 풀어주고
                 Cursor.visible = true; //마우스 포인터를 보여준다
-
+               
                 switch (CurrentNPCTALKTYPE)//닿은놈의 이넘
                 {
                     //1

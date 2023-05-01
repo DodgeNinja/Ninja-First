@@ -8,7 +8,7 @@ public class Cube_Active : MonoBehaviour
    
     private void Awake()
     {
-        
+        transform.position = spwon;
     }
     void Start()
     {
@@ -16,7 +16,7 @@ public class Cube_Active : MonoBehaviour
     }
     private void OnEnable()
     {
-        transform.position = spwon;
+        
     }
 
     // Update is called once per frame
