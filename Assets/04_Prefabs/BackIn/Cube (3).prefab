@@ -112,6 +112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 236179ba8b5150e4da2179960b160d26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  im: {fileID: 5281820529423635868, guid: 53a6c0ba17da25240a051777a983940b, type: 3}
   interaction: 0
 --- !u!135 &2025745442023701372
 SphereCollider:
@@ -138,4 +139,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edc90b78108cb7544aace830817b2227, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Lookplayer: 0
   _npc_talk: 0
+  NPC_talking: 0
+  selection_window: 0

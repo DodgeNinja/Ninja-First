@@ -56,6 +56,7 @@ public class Look_Player : Singleton<NPCtalking>
     {
         if (other.tag == "Player")
         {
+            im.interaction = false;
             NPCtalking.instance.Lookplayer = false;
             //im.interaction = false;
             
