@@ -29,7 +29,9 @@ public class Cube_Active : MonoBehaviour
     {
         if (collision.collider.CompareTag("Player"))
         {
-            Inventory.Instance.PlusItem(itemData);
+            Inventory inventory = FindObjectOfType<Inventory>();
+
+            inventory.PlusItem(itemData);
             gameObject.SetActive(false);
         }
     }

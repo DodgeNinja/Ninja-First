@@ -10,6 +10,7 @@ public class Button : MonoBehaviour
     {
         item = FindAnyObjectByType<Item>();
     }
+
     private void Update()
     {
 

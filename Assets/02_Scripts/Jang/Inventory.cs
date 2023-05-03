@@ -6,10 +6,7 @@ using System;
 
 public class Inventory : MonoBehaviour
 {
-    public static Inventory Instance;
-
     [SerializeField] private Slot[] slots;
-    [SerializeField] private ItemData itemData;
     [SerializeField] private GameObject inventory;
 
     private void Awake()

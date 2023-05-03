@@ -15,6 +15,7 @@ public class Player_NPC_Talk : Singleton<NPCtalking>
     [SerializeField] GameObject choice_PhysicsTeacher;
     [SerializeField] GameObject choice_gay;
 
+    [SerializeField] GameObject inven;
 
     public TMP_Text[] text;
     public string[] NPC_Text0;
@@ -103,8 +104,11 @@ public class Player_NPC_Talk : Singleton<NPCtalking>
         }
         else// NPC가 나를 안보고 있다면
         {
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
+            if (!inven.activeSelf)
+            {
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
+            }
             offchoice();
             foreach(GameObject pal in textPanel)
                 pal.SetActive(false);
