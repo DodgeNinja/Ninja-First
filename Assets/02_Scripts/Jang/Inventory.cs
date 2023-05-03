@@ -6,20 +6,34 @@ using System;
 
 public class Inventory : MonoBehaviour
 {
-    public Slot[] slots;
+    [SerializeField] private Slot[] slots;
     [SerializeField] private ItemData itemData;
+    [SerializeField] private GameObject inventory;
 
     private void Awake()
     {
-        slots = FindObjectsOfType<Slot>();
-        Array.Sort(slots, (b, a) =>
-        {
-            return a.transform.GetSiblingIndex().CompareTo(b.transform.GetSiblingIndex());
-        });
+        
     }
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            switch (inventory.activeSelf)
+            {
+                case true:
+                    Cursor.lockState = CursorLockMode.Locked;
+                    Cursor.visible = false;
+                    inventory.SetActive(false);
+                    break;
+                case false:
+                    Cursor.lockState = CursorLockMode.None;
+                    Cursor.visible = true;
+                    inventory.SetActive(true);
+                    break;
+            }
+        }
+
         if (Input.GetKeyDown(KeyCode.U))
         {
             PlusItem(itemData);
@@ -42,6 +56,9 @@ public class Inventory : MonoBehaviour
             {
                 slots[i].item = item.item;
                 slots[i].itemSprite = item.itemSprite;
+                slots[i].boostSpeed = item.boostSpeed;
+                slots[i].boostTime = item.boostTime;
+                slots[i].plusWillPower = item.plusWillPower;
                 break;
             }
         }

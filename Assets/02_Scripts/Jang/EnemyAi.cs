@@ -13,6 +13,7 @@ public class EnemyAi : MonoBehaviour
     [SerializeField] private float maxRangeDistance;
     [SerializeField] private LayerMask playerMask;
 
+    private StatManager statManager;
     NavMeshAgent agent;
     GameObject player;
 
@@ -22,6 +23,7 @@ public class EnemyAi : MonoBehaviour
     {
         player = GameObject.FindWithTag("Player");
 
+        statManager = FindObjectOfType<StatManager>();
         agent = gameObject.GetComponent<NavMeshAgent>();
         agent.autoTraverseOffMeshLink = true;
         agent.updateRotation = true;
@@ -31,6 +33,7 @@ public class EnemyAi : MonoBehaviour
     {
         EnemyState();
         PlayerHurt();
+        Debug.Log(agent.destination);
     }
 
     private void EnemyState()
@@ -58,11 +61,16 @@ public class EnemyAi : MonoBehaviour
 
     private void IdleMovement()
     {
-        if (Vector3.Distance(transform.position, agent.destination) <= 0.5f)
+        if (Vector3.Distance(transform.position, agent.destination) <= 3f)
+        {
+            Debug.Log("ReSetting");
             agent.destination = RandomPos();
+        }
 
         if (agent.destination == lastDestination)
             return;
+
+        Debug.Log("Setting");
         agent.destination = RandomPos();
         lastDestination = agent.destination;
     }
@@ -72,11 +80,11 @@ public class EnemyAi : MonoBehaviour
         agent.destination = player.transform.position;
     }
 
-    private Vector3 RandomPos()
+    public Vector3 RandomPos()
     {
-        Vector3 randomDirection = Random.insideUnitSphere * idleRadius;
+        Vector3 randomDirection = new Vector3(Random.Range(-80f, 80f), Random.Range(-8f, 8f), Random.Range(-8f, 8f));   
         randomDirection += transform.position;
-
+        Debug.Log(randomDirection);
         NavMeshHit hit;
         NavMesh.SamplePosition(randomDirection, out hit, idleRadius, NavMesh.AllAreas);
         return hit.position;
@@ -89,13 +97,14 @@ public class EnemyAi : MonoBehaviour
         {
             state = State.idle;
 
+            statManager.willPower -= 20;
+
             while (dieDistance < 10)
             {
+                Debug.Log("Catch");
                 transform.position = RandomPos();
                 dieDistance = Vector3.Distance(transform.position, player.transform.position);
             }
-
-            //플레이어에 줄 디버프 함수를 여기다가 넣어
         }
     }
 }
