@@ -41,7 +41,7 @@ public class ObjectDetector : MonoBehaviour
                 if (ButCkl == false)
                 {
                     ButCkl = true;
-                    StartCoroutine(Button_Down()); //버튼 들감
+                    StartCoroutine(Button_Down(hit.transform.GetComponent<Button>())); //버튼 들감
 
 
                 }
@@ -50,12 +50,11 @@ public class ObjectDetector : MonoBehaviour
         }
     }
   
-    IEnumerator Button_Down()
+    IEnumerator Button_Down(Button button)
     {
-        Button Button = FindAnyObjectByType<Button>();
-        Button.ButDown();
+        button.ButDown();
         yield return new WaitForSeconds(0.5f);
-        Button.ButUp();
+        button.ButUp();
         ButCkl = false;
     }
 }

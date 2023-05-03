@@ -33,7 +33,6 @@ public class EnemyAi : MonoBehaviour
     {
         EnemyState();
         PlayerHurt();
-        Debug.Log(agent.destination);
     }
 
     private void EnemyState()
@@ -84,7 +83,6 @@ public class EnemyAi : MonoBehaviour
     {
         Vector3 randomDirection = new Vector3(Random.Range(-80f, 80f), Random.Range(-8f, 8f), Random.Range(-8f, 8f));   
         randomDirection += transform.position;
-        Debug.Log(randomDirection);
         NavMeshHit hit;
         NavMesh.SamplePosition(randomDirection, out hit, idleRadius, NavMesh.AllAreas);
         return hit.position;
