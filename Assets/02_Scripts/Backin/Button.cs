@@ -39,7 +39,7 @@ public class Button : MonoBehaviour
     public void ButUp()
     {
         transform.position += Vector3.right * 0.02f;
-        Debug.Log("�־ȵŴ´�");
+      
     }
 
 

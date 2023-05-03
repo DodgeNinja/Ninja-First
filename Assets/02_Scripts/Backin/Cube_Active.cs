@@ -5,14 +5,18 @@ using UnityEngine;
 public class Cube_Active : MonoBehaviour
 {
     [SerializeField] Vector3 spwon;
-    // Start is called before the first frame update
+   
+    private void Awake()
+    {
+        transform.position = spwon;
+    }
     void Start()
     {
         
     }
     private void OnEnable()
     {
-        transform.position = spwon;
+        
     }
 
     // Update is called once per frame
@@ -20,18 +24,12 @@ public class Cube_Active : MonoBehaviour
     {
         
     }
-    //private void OnCollisionEnter(Collision collision)
-    //{
-    //    if (collision.collider.CompareTag("Player"))
-    //    {
-    //        gameObject.SetActive(false);
-    //    }
-    //}
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter(Collision collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.collider.CompareTag("Player"))
         {
             gameObject.SetActive(false);
         }
     }
+   
 }
