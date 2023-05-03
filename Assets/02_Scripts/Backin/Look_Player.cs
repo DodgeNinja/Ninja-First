@@ -14,20 +14,6 @@ public class Look_Player : Singleton<NPCtalking>
         im = FindObjectOfType<Im>();
         nPC_Talk = GetComponent<NPCtalking>();
     }
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-
-    }
-
-
 
     private void OnTriggerStay(Collider other)
     {
@@ -57,14 +43,7 @@ public class Look_Player : Singleton<NPCtalking>
         if (other.tag == "Player")
         {
             im.interaction = false;
-            NPCtalking.instance.Lookplayer = false;
-            //im.interaction = false;
-            
-        
-
-
+            NPCtalking.instance.Lookplayer = false;  
         }
     }
-
-
 }

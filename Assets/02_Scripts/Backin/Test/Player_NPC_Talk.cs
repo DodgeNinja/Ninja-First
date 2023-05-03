@@ -30,58 +30,63 @@ public class Player_NPC_Talk : Singleton<NPCtalking>
     private int cool3 = 3;
 
     private string nope = "이 NPC와는 이미 대화 했습니다.";
+
+    private bool talking = false;
     void Update()
     {
         if (NPCtalking.instance.Lookplayer == true) //NPC가 나를 보고있다면
         {
-
-            if (Input.GetKeyDown(KeyCode.E)) //E를 눌렀다면
+            if (talking == false)
             {
-
-                text.text = "";
-                Cursor.lockState = CursorLockMode.Confined; //카메라 고정을 풀어주고
-                Cursor.visible = true; //마우스 포인터를 보여준다
-
-                switch (CurrentNPCTALKTYPE)//닿은놈의 이넘
+                if (Input.GetKeyDown(KeyCode.E)) //E를 눌렀다면
                 {
-                    //1
-                    case NPC_talk.NPC_DefaultTeacher:
-                        if (cool0 == 0)
-                        {
-                            NpcText(NPC_Text0[0], cool0);
-                        }
-                        else
-                            StartCoroutine(Npc_End());
-                        break;
-                    //2
-                    case NPC_talk.NPC_trader:
-                        if (cool1 == 1)
-                        {
-                            NpcText(NPC_Text1[0], cool1);
-                        }
-                        else
-                            StartCoroutine(Npc_End());
-                        break;
-                    //3
-                    case NPC_talk.NPC_PhysicsTeacher:
-                        if (cool2 == 2)
-                        {
-                            NpcText(NPC_Text2[0], cool2);
-                        }
-                        else
-                            StartCoroutine(Npc_End());
-                        break;
-                    //4
-                    case NPC_talk.NPC_gay:
-                        if (cool3 == 3)
-                        {
-                            Debug.Log("실행이 되니?");
-                            NpcText(NPC_Text3[0], cool3);
-                        }
-                        else
-                            StartCoroutine(Npc_End());
-                        break;
 
+                    text.text = "";
+                    Cursor.lockState = CursorLockMode.Confined; //카메라 고정을 풀어주고
+                    Cursor.visible = true; //마우스 포인터를 보여준다
+                    talking = true;
+                    switch (CurrentNPCTALKTYPE)//닿은놈의 이넘
+                    {
+                        //1
+                        case NPC_talk.NPC_DefaultTeacher:
+                            if (cool0 == 0)
+                            {
+                                NpcText(NPC_Text0[0], cool0);
+                            }
+                            else
+                                StartCoroutine(Npc_End());
+                            break;
+                        //2
+                        case NPC_talk.NPC_trader:
+                            if (cool1 == 1)
+                            {
+                                NpcText(NPC_Text1[0], cool1);
+                            }
+                            else
+                                StartCoroutine(Npc_End());
+                            break;
+                        //3
+                        case NPC_talk.NPC_PhysicsTeacher:
+                            if (cool2 == 2)
+                            {
+                                NpcText(NPC_Text2[0], cool2);
+                            }
+                            else
+                                StartCoroutine(Npc_End());
+                            break;
+                        //4
+                        case NPC_talk.NPC_gay:
+                            if (cool3 == 3)
+                            {
+
+                                NpcText(NPC_Text3[0], cool3);
+                                Debug.Log("실행이 되니?");
+                            }
+                            else
+                                StartCoroutine(Npc_End());
+                            break;
+                      
+                    }
                 }
             }
 
@@ -113,77 +118,49 @@ public class Player_NPC_Talk : Singleton<NPCtalking>
         switch (npc_end)
         {
             case 0:
-                cool0 += 1;
+                cool0++;
                 Debug.Log("실행이 되는구나?1");
                 StartCoroutine(chartext(npc_text, 1));
                 break;
             case 1:
-                cool1 += 1;
+                cool1++;
                 StartCoroutine(chartext(npc_text, 2));
                 break;
             case 2:
-                cool2 += 1;
+                cool2++;
                 StartCoroutine(chartext(npc_text, 3));
                 break;
             case 3:
-                cool3 += 1;
+                cool3++;
                 StartCoroutine(chartext(npc_text, 4));
                 break;
-
         }
-
-        //if (npc_end == cool1)
-        //{
-        //    cool1 = true;
-        //    Debug.Log("실행이 되는구나?1");
-        //    StartCoroutine(chartext(npc_text, 1));
-        //}
-        //else if(npc_end == cool2)
-        //{
-        //    cool2 = true;
-        //    StartCoroutine(chartext(npc_text, 2));
-        //}
-        //else if(npc_end == cool3)
-        //{
-        //    cool3 = true;
-        //    StartCoroutine(chartext(npc_text, 3));
-        //}
-        //else if(npc_end == cool4)
-        //{
-        //    cool4 = true;
-        //    Debug.Log("실행이 되는구나?4");
-        //    StartCoroutine(chartext(npc_text, 4));
-        //}
-
-
     }
 
-    IEnumerator chartext(string dk, int dmd)
+    IEnumerator chartext(string chat, int npc_end)
     {
-        for (int i = 0; i <= dk.Length; i++)
+        
+        for (int i = 0; i <= chat.Length; i++)
         {
-            text.text = dk.Substring(0, i);
+            text.text = chat.Substring(0, i);
             yield return new WaitForSeconds(0.09f);
         }
-        if (dmd == 1)
+        switch (npc_end)
         {
+            case 1:
+                choice_DefaultTeacher.SetActive(true);
+                break;
+            case 2:
+                choice_trader.SetActive(true);
+                break;
+            case 3:
+                choice_PhysicsTeacher.SetActive(true);
+                break;
+            case 4:
+                choice_gay.SetActive(true);
+                break;
+        }
 
-            choice_DefaultTeacher.SetActive(true);
-        }
-        else if (dmd == 2)
-        {
-
-            choice_trader.SetActive(true);
-        }
-        else if (dmd == 3)
-        {
-            choice_PhysicsTeacher.SetActive(true);
-        }
-        else if (dmd == 4)
-        {
-            Debug.Log("실행이 되는구나?!");
-            choice_gay.SetActive(true);
-        }
     }
     IEnumerator Npc_End()
     {

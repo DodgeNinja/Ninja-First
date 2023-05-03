@@ -8,7 +8,7 @@ public enum NPC_talk : short
     NPC_DefaultTeacher = 0,
     NPC_trader = 1,
     NPC_PhysicsTeacher = 2,
-    NPC_gay = 3
+    NPC_gay = 3 
 
 }
 public class NPCtalking : Singleton<NPCtalking>

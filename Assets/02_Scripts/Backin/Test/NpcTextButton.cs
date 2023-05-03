@@ -19,18 +19,6 @@ public class NpcTextButton : Singleton<NPCtalking>
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
     }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
     #region 기본NPC대화
     public void NPCnum1_NPC()
     {
