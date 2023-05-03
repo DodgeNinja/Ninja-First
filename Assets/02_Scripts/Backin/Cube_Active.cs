@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Cube_Active : MonoBehaviour
 {
+    [SerializeField] ItemData itemData;
     [SerializeField] Vector3 spwon;
    
     private void Awake()
@@ -28,6 +29,7 @@ public class Cube_Active : MonoBehaviour
     {
         if (collision.collider.CompareTag("Player"))
         {
+            Inventory.Instance.PlusItem(itemData);
             gameObject.SetActive(false);
         }
     }

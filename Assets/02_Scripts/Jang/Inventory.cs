@@ -6,6 +6,8 @@ using System;
 
 public class Inventory : MonoBehaviour
 {
+    public static Inventory Instance;
+
     [SerializeField] private Slot[] slots;
     [SerializeField] private ItemData itemData;
     [SerializeField] private GameObject inventory;
@@ -32,11 +34,6 @@ public class Inventory : MonoBehaviour
                     inventory.SetActive(true);
                     break;
             }
-        }
-
-        if (Input.GetKeyDown(KeyCode.U))
-        {
-            PlusItem(itemData);
         }
     }
 

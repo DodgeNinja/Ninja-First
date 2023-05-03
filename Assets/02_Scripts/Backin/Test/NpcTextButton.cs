@@ -24,7 +24,6 @@ public class NpcTextButton : Singleton<NPCtalking>
     {
         StartCoroutine(NPCnum(Npc_choice1[0]));
         NPCtalking.instance.selection_window = true;
-
     }
     public void NPCnum2_NPC()
     {
