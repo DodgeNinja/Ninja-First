@@ -21,9 +21,15 @@ public class SceneManagerEX : MonoBehaviour
         BlackBack.enabled = false;
     }
 
+    private void Start()
+    {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+    }
+
     public void SceneLoader(string sceneName)
     {
-        
+        SceneManager.LoadScene(sceneName);
     }
 
     public void GameQuit()

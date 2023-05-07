@@ -31,7 +31,7 @@ public class QuizManager : MonoBehaviour
     void Update()
     {
         QuizScoring(nowNumber);
-        scoreText.text = quizScore.ToString();
+        scoreText.text = $"¸ÂÃá ¹®Á¦ : {quizScore}";
     }
 
     public void PopPanel(int num)
