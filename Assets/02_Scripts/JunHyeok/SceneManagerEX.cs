@@ -21,7 +21,7 @@ public class SceneManagerEX : MonoBehaviour
         BlackBack.enabled = false;
     }
 
-    private void Start()
+    private void Update()
     {
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;

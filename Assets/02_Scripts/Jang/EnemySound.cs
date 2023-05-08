@@ -17,16 +17,21 @@ public class EnemySound : MonoBehaviour
 
     private void SoundRange()
     {
-        RaycastHit hit;
-        Vector2 center = transform.position;
-        var soundRange = Physics.OverlapSphere(transform.position, sountRadius,
-             playerMask);
-        
-        if (soundRange.Length != 0 && !check)
+        var soundRange = Physics.OverlapBox(transform.position, new Vector3(sountRadius, 2.5f,
+            sountRadius), Quaternion.identity, playerMask);
+
+        //var soundRange = Physics.OverlapSphere(transform.position, sountRadius,
+        //     playerMask);
+
+        if (soundRange.Length > 0 && !check)
         {
+            Debug.Log(soundRange[0].name);
             enemySound.Play();
             check = true;
         }
-        else if (soundRange.Length == 0) check = false;
+        else if (soundRange.Length == 0)
+        {
+            check = false;
+        }
     }
 }
