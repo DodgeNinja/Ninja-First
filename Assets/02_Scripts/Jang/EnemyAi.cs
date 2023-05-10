@@ -101,7 +101,7 @@ public class EnemyAi : MonoBehaviour
             statManager.willPower -= 20;
 
             playerLight.color = new Color(1, 0, 0, 1);
-            playerLight.DOColor(new Color(1, 1, 0.8f, 1), 1.5f);
+            playerLight.DOColor(new Color(1, 1f, 0.8f, 1), 1.5f);
 
             dieDistance = Vector3.Distance(transform.position, player.transform.position);
 
