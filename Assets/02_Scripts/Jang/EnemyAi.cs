@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.UIElements;
+using DG.Tweening;
 
 public class EnemyAi : MonoBehaviour
 {
@@ -16,6 +16,7 @@ public class EnemyAi : MonoBehaviour
     private StatManager statManager;
     NavMeshAgent agent;
     GameObject player;
+    Light playerLight;
 
     Vector3 lastDestination;
 
@@ -24,6 +25,8 @@ public class EnemyAi : MonoBehaviour
         player = GameObject.FindWithTag("Player");
 
         statManager = FindObjectOfType<StatManager>();
+        playerLight = GameObject.FindWithTag("Player").transform.GetChild(0).GetChild(0).GetComponent<Light>();
+
         agent = gameObject.GetComponent<NavMeshAgent>();
         agent.autoTraverseOffMeshLink = true;
         agent.updateRotation = true;
@@ -33,14 +36,13 @@ public class EnemyAi : MonoBehaviour
     {
         EnemyState();
         PlayerHurt();
-        Debug.Log(agent.destination);
     }
 
     private void EnemyState()
     {
         Vector3 center = transform.position;
         Vector3 dir = player.transform.position - transform.position;
-        if (PlayerCheck(center, dir, maxRangeDistance))
+        if (PlayerCheck(center, dir, maxRangeDistance) && Mathf.Abs(dir.y) < 2.5f)
         {
             state = State.tracking;
             TrackingMovement();
@@ -84,7 +86,6 @@ public class EnemyAi : MonoBehaviour
     {
         Vector3 randomDirection = new Vector3(Random.Range(-80f, 80f), Random.Range(-8f, 8f), Random.Range(-8f, 8f));   
         randomDirection += transform.position;
-        Debug.Log(randomDirection);
         NavMeshHit hit;
         NavMesh.SamplePosition(randomDirection, out hit, idleRadius, NavMesh.AllAreas);
         return hit.position;
@@ -99,7 +100,12 @@ public class EnemyAi : MonoBehaviour
 
             statManager.willPower -= 20;
 
-            while (dieDistance < 10)
+            playerLight.color = new Color(1, 0, 0, 1);
+            playerLight.DOColor(new Color(1, 1, 0.8f, 1), 1.5f);
+
+            dieDistance = Vector3.Distance(transform.position, player.transform.position);
+
+            while (dieDistance < 25)
             {
                 Debug.Log("Catch");
                 transform.position = RandomPos();

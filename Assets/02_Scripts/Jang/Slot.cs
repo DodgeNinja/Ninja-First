@@ -7,6 +7,7 @@ using UnityEngine.EventSystems;
 
 public class Slot : MonoBehaviour
 {
+    [Header("infomation")]
     public ItemEnum item;
     public Sprite itemSprite;
     public float boostSpeed;
@@ -14,10 +15,12 @@ public class Slot : MonoBehaviour
     public int plusWillPower;
 
     private Image image;
+    private AudioSource audioSource;
 
     private void Awake()
     {
         image = gameObject.GetComponent<Image>();
+        audioSource = GameObject.FindWithTag("Player").GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -33,9 +36,11 @@ public class Slot : MonoBehaviour
         {
             case ItemEnum.Cola:
                 StatManager.instance.PlayerBoost(boostSpeed, boostTime);
+                audioSource.Play();
                 break;
             case ItemEnum.Juice:
                 StatManager.instance.willPower += plusWillPower;
+                audioSource.Play();
                 break;
         }
 

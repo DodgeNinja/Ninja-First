@@ -7,7 +7,6 @@ using System;
 public class Inventory : MonoBehaviour
 {
     [SerializeField] private Slot[] slots;
-    [SerializeField] private ItemData itemData;
     [SerializeField] private GameObject inventory;
 
     private void Awake()
@@ -32,11 +31,6 @@ public class Inventory : MonoBehaviour
                     inventory.SetActive(true);
                     break;
             }
-        }
-
-        if (Input.GetKeyDown(KeyCode.U))
-        {
-            PlusItem(itemData);
         }
     }
 
