@@ -65,20 +65,19 @@ public class EnemyAi : MonoBehaviour
     {
         if (Vector3.Distance(transform.position, agent.destination) <= 3f)
         {
-            Debug.Log("ReSetting");
             agent.destination = RandomPos();
         }
 
         if (agent.destination == lastDestination)
             return;
 
-        Debug.Log("Setting");
         agent.destination = RandomPos();
         lastDestination = agent.destination;
     }
 
     private void TrackingMovement()
     {
+        Debug.Log("자자이리로왔");
         agent.destination = player.transform.position;
     }
 
