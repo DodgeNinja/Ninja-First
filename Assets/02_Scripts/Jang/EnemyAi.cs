@@ -77,7 +77,6 @@ public class EnemyAi : MonoBehaviour
 
     private void TrackingMovement()
     {
-        Debug.Log("자자이리로왔");
         agent.destination = player.transform.position;
     }
 
@@ -93,7 +92,8 @@ public class EnemyAi : MonoBehaviour
     void PlayerHurt()
     {
         float dieDistance = Vector3.Distance(transform.position, player.transform.position);
-        if (dieDistance <= 0.9f)
+        Debug.Log(dieDistance);
+        if (dieDistance <= 1.1f)
         {
             state = State.idle;
 
