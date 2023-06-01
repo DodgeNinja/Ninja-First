@@ -41,7 +41,7 @@ public class ObjectDetector : MonoBehaviour
                 if (ButCkl == false)
                 {
                     ButCkl = true;
-                    StartCoroutine(Button_Down(hit.transform.GetComponent<Button>())); //버튼 들감
+                    StartCoroutine(Button_Down(hit.transform.GetComponent<Buton>())); //버튼 들감
 
 
                 }
@@ -50,7 +50,7 @@ public class ObjectDetector : MonoBehaviour
         }
     }
   
-    IEnumerator Button_Down(Button button)
+    IEnumerator Button_Down(Buton button)
     {
         button.ButDown();
         yield return new WaitForSeconds(0.5f);
