@@ -20,9 +20,18 @@ public class Menucontroller : MonoBehaviour
         _playButton.clicked += PlayButtonOnClicked;
 
         _settingsButton = _doc.rootVisualElement.Q<Button>("SettingsButton");
+
         _ExitButton = _doc.rootVisualElement.Q<Button>("ExitButton");
+        _ExitButton.clicked += ExitButtonOnClicked;
+
         _MuteButton = _doc.rootVisualElement.Q<Button>("MuteButton");
 
+    }
+
+    private void ExitButtonOnClicked()
+    {
+        Debug.Log("³¢¸ðÂî");
+        Application.Quit();
     }
 
     private void PlayButtonOnClicked()
