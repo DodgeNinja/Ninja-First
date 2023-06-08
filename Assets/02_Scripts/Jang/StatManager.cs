@@ -23,7 +23,7 @@ public class StatManager : MonoBehaviour
 
     void Update()
     {
-        willPowerText.text = $"ÀÇÁö·Â : {willPower}";
+        willPowerText.text = $"WillPower : {willPower}";
         GameOver();
     }
 

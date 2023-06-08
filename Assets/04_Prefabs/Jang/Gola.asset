@@ -16,4 +16,4 @@ MonoBehaviour:
   itemSprite: {fileID: 21300000, guid: 6917a42c33935734ebfc6f7a8c8d3180, type: 3}
   boostSpeed: 4
   boostTime: 5
-  plusWillPower: 10
+  plusWillPower: 0

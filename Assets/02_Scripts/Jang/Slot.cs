@@ -39,6 +39,7 @@ public class Slot : MonoBehaviour
                 audioSource.Play();
                 break;
             case ItemEnum.Juice:
+                Debug.Log(plusWillPower);
                 StatManager.instance.willPower += plusWillPower;
                 audioSource.Play();
                 break;

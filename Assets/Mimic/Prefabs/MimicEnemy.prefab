@@ -21,7 +21,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8675915457954794082
 Transform:
   m_ObjectHideFlags: 0
@@ -67,7 +67,7 @@ MonoBehaviour:
   minGrowCoef: 4.5
   maxGrowCoef: 6.5
   newLegCooldown: 0.3
-  velocity: {x: -0.07800025, y: 0, z: -0.028310588}
+  velocity: {x: -0.78300446, y: 0, z: 0.4399932}
 --- !u!82 &593317857
 AudioSource:
   m_ObjectHideFlags: 0
@@ -202,7 +202,7 @@ MonoBehaviour:
   sountRadius: 7
   playerMask:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 128
   check: 0
 --- !u!114 &593317855
 MonoBehaviour:
@@ -233,7 +233,7 @@ MonoBehaviour:
   maxRangeDistance: 5
   playerMask:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 64
 --- !u!1 &8675915458194695971
 GameObject:
   m_ObjectHideFlags: 0
