@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public class Button : MonoBehaviour
+public class Buton : MonoBehaviour
 {
     Item item;
     int a = 0;
