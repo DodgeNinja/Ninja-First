@@ -25,7 +25,6 @@ public class EnemySound : MonoBehaviour
 
         if (soundRange.Length > 0 && !check)
         {
-            Debug.Log(soundRange[0].name);
             enemySound.Play();
             check = true;
         }

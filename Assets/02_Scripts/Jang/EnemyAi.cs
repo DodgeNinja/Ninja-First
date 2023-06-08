@@ -65,14 +65,12 @@ public class EnemyAi : MonoBehaviour
     {
         if (Vector3.Distance(transform.position, agent.destination) <= 3f)
         {
-            Debug.Log("ReSetting");
             agent.destination = RandomPos();
         }
 
         if (agent.destination == lastDestination)
             return;
 
-        Debug.Log("Setting");
         agent.destination = RandomPos();
         lastDestination = agent.destination;
     }
@@ -94,7 +92,8 @@ public class EnemyAi : MonoBehaviour
     void PlayerHurt()
     {
         float dieDistance = Vector3.Distance(transform.position, player.transform.position);
-        if (dieDistance <= 0.9f)
+        Debug.Log(dieDistance);
+        if (dieDistance <= 1.1f)
         {
             state = State.idle;
 
