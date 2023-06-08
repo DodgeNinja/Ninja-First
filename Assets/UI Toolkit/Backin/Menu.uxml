@@ -12,5 +12,11 @@
         <ui:VisualElement name="RightSection" style="flex-grow: 1; background-image: none; background-color: rgba(0, 0, 0, 0); align-items: flex-end; justify-content: flex-end; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
             <ui:Button display-tooltip-when-elided="true" name="MuteButton" class="menu-button" style="background-image: url(&apos;project://database/Assets/03_Sprites/Backin/icons8-sound-50.png?fileID=2800000&amp;guid=4932cf9904ecd58408168392cac4936d&amp;type=3#icons8-sound-50&apos;); width: 50px; height: 50px; background-color: rgba(255, 255, 255, 0.36);" />
         </ui:VisualElement>
+        <ui:VisualElement name="Quit-Bottom" style="position: absolute; width: 100%; height: 100%;">
+            <ui:VisualElement name="Scrim" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0.65);" />
+            <ui:VisualElement name="QuitSheet" style="position: absolute; width: 1152px; max-width: 809px; max-height: 491px; min-width: 683px; min-height: 17px; left: 610px; height: 444px; top: 473px;">
+                <ui:Button text="Button" display-tooltip-when-elided="true" style="height: 10%; background-color: rgba(26, 26, 26, 255); -unity-text-outline-color: rgba(255, 255, 255, 255); border-left-color: rgb(255, 255, 255); border-right-color: rgb(255, 255, 255); border-top-color: rgb(255, 255, 255); border-bottom-color: rgb(255, 255, 255); width: 50%;" />
+            </ui:VisualElement>
+        </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

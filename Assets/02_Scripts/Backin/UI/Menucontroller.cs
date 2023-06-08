@@ -30,7 +30,6 @@ public class Menucontroller : MonoBehaviour
 
     private void ExitButtonOnClicked()
     {
-        Debug.Log("³¢¸ðÂî");
         Application.Quit();
     }
 
