@@ -7,6 +7,8 @@ using UnityEngine.EventSystems;
 
 public class Slot : MonoBehaviour
 {
+    [SerializeField] private Sprite nullSprite;
+
     [Header("infomation")]
     public ItemEnum item;
     public Sprite itemSprite;
@@ -21,6 +23,8 @@ public class Slot : MonoBehaviour
     {
         image = gameObject.GetComponent<Image>();
         audioSource = GameObject.FindWithTag("Player").GetComponent<AudioSource>();
+        itemSprite = nullSprite;
+        nullSprite = itemSprite;
     }
 
     private void Update()
@@ -43,6 +47,9 @@ public class Slot : MonoBehaviour
                 StatManager.instance.willPower += plusWillPower;
                 audioSource.Play();
                 break;
+            case ItemEnum.light:
+                GameObject[] collect = GameObject.FindGameObjectsWithTag("Collection");
+                break;
         }
 
         SlotReset();
@@ -51,6 +58,6 @@ public class Slot : MonoBehaviour
     void SlotReset()
     {
         item = ItemEnum.Null;
-        itemSprite = null;
+        itemSprite = nullSprite;
     }
 }
