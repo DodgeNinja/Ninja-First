@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class StatManager : MonoBehaviour
@@ -23,7 +24,7 @@ public class StatManager : MonoBehaviour
 
     void Update()
     {
-        willPowerText.text = $"ÀÇÁö·Â : {willPower}";
+        willPowerText.text = $"WillPower : {willPower}";
         GameOver();
     }
 
