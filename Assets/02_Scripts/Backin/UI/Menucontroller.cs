@@ -6,8 +6,16 @@ using UnityEngine.UIElements;
 using DG.Tweening;
 
 
+
 public class Menucontroller : MonoBehaviour
 {
+    [SerializeField]
+    private VisualTreeAsset _settingsButtonsTemplate;
+    private VisualElement _buttonsWrapper;
+    private VisualElement _panelWrapper;
+    private VisualElement _endpanel;
+
+
     private UIDocument _doc;
 
     private Button _playButton; //플레이버튼
@@ -15,6 +23,7 @@ public class Menucontroller : MonoBehaviour
     private Button _ExitButton; // 나가기 버튼
     private Button _MuteButton; // 조용히 버튼
     private Button _ExitNoButton; // 나가기 안에 있는 No라는 선택지 버튼
+    private Button _exitYesButton;
 
     private VisualElement _quit;//바텀시트의 부모
     private VisualElement _quitSheet; //Quit화면 위로 올라가기
@@ -29,37 +38,64 @@ public class Menucontroller : MonoBehaviour
         _playButton = _doc.rootVisualElement.Q<Button>("PlayButton"); //플레이 버튼
         _playButton.clicked += PlayButtonOnClicked;
         #endregion
-        _settingsButton = _doc.rootVisualElement.Q<Button>("SettingsButton");
+
+        _endpanel = _doc.rootVisualElement.Q<VisualElement>("Quit-Bottom");
+
+        _panelWrapper = _doc.rootVisualElement.Q<VisualElement>("LeftSection");//메인 메뉴
+
+        _settingsButton = _doc.rootVisualElement.Q<Button>("SettingsButton"); // 세팅버튼
+        _settingsButton.clicked += SettingButtonOnClicked;
+
         #region 게임 종료 버튼
-        _ExitButton = _doc.rootVisualElement.Q<Button>("ExitButton");
+        _ExitButton = _doc.rootVisualElement.Q<Button>("ExitButton"); //나가는 버튼
         _ExitButton.clicked += ExitButtonOnClicked;
+
+        _ExitNoButton = _doc.rootVisualElement.Q<Button>("NoButton"); // 나가기 버튼 안에 No버튼
+        _ExitNoButton.clicked += ExitButton_No;
+
+        _exitYesButton = _doc.rootVisualElement.Q<Button>("YesButton");
+        _exitYesButton.clicked += ExitButton_Yes;
         #endregion
         _MuteButton = _doc.rootVisualElement.Q<Button>("MuteButton");
 
-        _quit = _doc.rootVisualElement.Q<VisualElement>("Quit-Bottom");
-        _quit.style.display = DisplayStyle.None;
+        //_quit = _doc.rootVisualElement.Q<VisualElement>("Quit-Bottom");
+        //_quit.style.display = DisplayStyle.None;
 
-        _ExitNoButton = _doc.rootVisualElement.Q<Button>("NoButton");
-        _ExitNoButton.clicked += ExitButton_No;
 
         _quitSheet = _doc.rootVisualElement.Q<VisualElement>("QuitSheet");
     }
 
+    private void ExitButton_Yes()
+    {
+        _endpanel.RemoveFromClassList("on");
+        StartCoroutine(PlayEvent());
+    }
+
+    private void SettingButtonOnClicked()
+    {
+        _buttonsWrapper.Clear();
+    }
+
     private void ExitButtonOnClicked()
     {
-        _quit.style.display = DisplayStyle.Flex;
+        _panelWrapper.AddToClassList("out");
+        _endpanel.AddToClassList("on");
+        //_quit.style.display = DisplayStyle.Flex;
 
 
     }
 
     private void PlayButtonOnClicked()
     {
+        _panelWrapper.AddToClassList("out");       
         StartCoroutine(PlayEvent());
     }
 
     private void ExitButton_No()
     {
-        _quit.style.display = DisplayStyle.None;
+        //_quit.style.display = DisplayStyle.None;
+        _panelWrapper.RemoveFromClassList("out");
+        _endpanel.RemoveFromClassList("on");
 
     }
     IEnumerator PlayEvent()

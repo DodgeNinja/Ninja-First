@@ -16,7 +16,34 @@
 
 .menu-button:hover {
     font-size: 50px;
-    color: rgba(255, 255, 255, 255);
+    color: rgb(255, 255, 255);
     rotate: -10deg;
     transition-duration: 0.3s;
+}
+
+.LeftSection-Back {
+    background-color: rgba(0, 0, 0, 0.71);
+    height: 100%;
+    width: 30%;
+    margin-left: 0;
+    -unity-text-align: upper-left;
+    align-items: center;
+    color: rgb(255, 255, 255);
+    left: auto;
+}
+
+#LeftSection.out {
+    margin-left: -700px;
+}
+
+#Quit-Bottom.on {
+    margin-left: 0;
+    left: auto;
+    position: relative;
+    margin-top: 0;
+    align-items: stretch;
+    top: auto;
+    right: auto;
+    bottom: 0;
+    margin-bottom: -70px;
 }
