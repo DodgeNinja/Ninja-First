@@ -9,7 +9,7 @@ using DG.Tweening;
 
 public class Menucontroller : MonoBehaviour
 {
-    [SerializeField]
+    //[SerializeField]
     private VisualTreeAsset _settingsButtonsTemplate;
     private VisualElement _buttonsWrapper;
     private VisualElement _panelWrapper;
@@ -23,7 +23,7 @@ public class Menucontroller : MonoBehaviour
     private Button _ExitButton; // 나가기 버튼
     private Button _MuteButton; // 조용히 버튼
     private Button _ExitNoButton; // 나가기 안에 있는 No라는 선택지 버튼
-    private Button _exitYesButton;
+    private Button _exitYesButton; //나가기 안에 있는 yes라는 버튼
 
     private VisualElement _quit;//바텀시트의 부모
     private VisualElement _quitSheet; //Quit화면 위로 올라가기
@@ -53,7 +53,7 @@ public class Menucontroller : MonoBehaviour
         _ExitNoButton = _doc.rootVisualElement.Q<Button>("NoButton"); // 나가기 버튼 안에 No버튼
         _ExitNoButton.clicked += ExitButton_No;
 
-        _exitYesButton = _doc.rootVisualElement.Q<Button>("YesButton");
+        _exitYesButton = _doc.rootVisualElement.Q<Button>("YesButton"); //나가기 버튼 안에 Yes버튼
         _exitYesButton.clicked += ExitButton_Yes;
         #endregion
         _MuteButton = _doc.rootVisualElement.Q<Button>("MuteButton");
