@@ -39,7 +39,7 @@ public class Menucontroller : MonoBehaviour
         _playButton.clicked += PlayButtonOnClicked;
         #endregion
 
-        _endpanel = _doc.rootVisualElement.Q<VisualElement>("Quit-Bottom");
+        _endpanel = _doc.rootVisualElement.Q<VisualElement>("Exit"); //게임 종료 창
 
         _panelWrapper = _doc.rootVisualElement.Q<VisualElement>("LeftSection");//메인 메뉴
 
@@ -67,7 +67,7 @@ public class Menucontroller : MonoBehaviour
 
     private void ExitButton_Yes()
     {
-        _endpanel.RemoveFromClassList("on");
+        _endpanel.AddToClassList("on");
         StartCoroutine(PlayEvent());
     }
 
@@ -78,8 +78,10 @@ public class Menucontroller : MonoBehaviour
 
     private void ExitButtonOnClicked()
     {
+        
         _panelWrapper.AddToClassList("out");
-        _endpanel.AddToClassList("on");
+        _endpanel.RemoveFromClassList("on");
+        Debug.Log("야발");
         //_quit.style.display = DisplayStyle.Flex;
 
 
@@ -95,7 +97,7 @@ public class Menucontroller : MonoBehaviour
     {
         //_quit.style.display = DisplayStyle.None;
         _panelWrapper.RemoveFromClassList("out");
-        _endpanel.RemoveFromClassList("on");
+        _endpanel.AddToClassList("on");
 
     }
     IEnumerator PlayEvent()

@@ -36,16 +36,6 @@
     margin-left: -700px;
 }
 
-#Quit-Bottom.on {
-    margin-left: 0;
-    left: auto;
-    position: absolute;
-    margin-top: 0;
-    align-items: stretch;
-    top: auto;
-    right: auto;
-    bottom: 0;
-    margin-bottom: 0;
-    flex-shrink: 1;
-    padding-top: 333px;
+#Exit.on {
+    margin-left: -700px;
 }
