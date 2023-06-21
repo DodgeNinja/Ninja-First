@@ -9,10 +9,12 @@ public class PlayerInteract : MonoBehaviour
     private float distance = 3f;
     [SerializeField]
     private LayerMask mask;
+    private PlayerUI playerUI;
 
     private void Awake()
     {
         cam = FindObjectOfType<Camera>();
+        playerUI = GetComponent<PlayerUI>();
     }
     void Start()
     {
@@ -22,6 +24,7 @@ public class PlayerInteract : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        playerUI.UpdateText(string.Empty);  
         Ray ray = new Ray(cam.transform.position, cam.transform.forward);
         Debug.DrawRay(ray.origin, ray.direction * distance, Color.red);
         RaycastHit hitInfo;
@@ -29,7 +32,12 @@ public class PlayerInteract : MonoBehaviour
         {
             if (hitInfo.collider.GetComponent<Interactable>() != null)
             {
-                Debug.Log(hitInfo.collider.GetComponent<Interactable>().promptMessage);
+                Interactable interactable = hitInfo.collider.GetComponent<Interactable>();
+                playerUI.UpdateText(interactable.promptMessage);
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    interactable.BaseInteract();
+                }
             }
         }
     }
