@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 using DG.Tweening;
+using UnityEngine.SceneManagement;
 
 
 
@@ -11,9 +12,9 @@ public class Menucontroller : MonoBehaviour
 {
     //[SerializeField]
     private VisualTreeAsset _settingsButtonsTemplate;
-    private VisualElement _buttonsWrapper;
     private VisualElement _panelWrapper;
     private VisualElement _endpanel;
+    private VisualElement _settingPanel;
 
 
     private UIDocument _doc;
@@ -27,13 +28,16 @@ public class Menucontroller : MonoBehaviour
 
     private VisualElement _quit;//바텀시트의 부모
     private VisualElement _quitSheet; //Quit화면 위로 올라가기
-    [SerializeField]private UnityEngine.UI.Image _image;
+    [SerializeField] private UnityEngine.UI.Image _image;
 
-  
+
 
     private void Awake()
     {
         var _doc = GetComponent<UIDocument>();
+
+        _settingPanel = _doc.rootVisualElement.Q<VisualElement>("Setting");
+
         #region 플레이 버튼
         _playButton = _doc.rootVisualElement.Q<Button>("PlayButton"); //플레이 버튼
         _playButton.clicked += PlayButtonOnClicked;
@@ -63,25 +67,27 @@ public class Menucontroller : MonoBehaviour
 
 
         _quitSheet = _doc.rootVisualElement.Q<VisualElement>("QuitSheet");
+
     }
 
     private void ExitButton_Yes()
     {
         _endpanel.AddToClassList("on");
-        StartCoroutine(PlayEvent());
+        StartCoroutine(PlayEvent("out"));
     }
 
     private void SettingButtonOnClicked()
     {
-        _buttonsWrapper.Clear();
+        _settingPanel.RemoveFromClassList("on");
+        _panelWrapper.AddToClassList("out");
+
     }
 
     private void ExitButtonOnClicked()
     {
-        
+
         _panelWrapper.AddToClassList("out");
         _endpanel.RemoveFromClassList("on");
-        Debug.Log("야발");
         //_quit.style.display = DisplayStyle.Flex;
 
 
@@ -89,8 +95,8 @@ public class Menucontroller : MonoBehaviour
 
     private void PlayButtonOnClicked()
     {
-        _panelWrapper.AddToClassList("out");       
-        StartCoroutine(PlayEvent());
+        _panelWrapper.AddToClassList("out");
+        StartCoroutine(PlayEvent("in"));
     }
 
     private void ExitButton_No()
@@ -100,17 +106,26 @@ public class Menucontroller : MonoBehaviour
         _endpanel.AddToClassList("on");
 
     }
-    IEnumerator PlayEvent()
+    IEnumerator PlayEvent(string what)
     {
         while (true)
         {
+
             Color myCOlor = _image.color;
             myCOlor.a += 0.01f;
             _image.color = myCOlor;
             yield return new WaitForSeconds(0.01f);
             if (_image.color.a > 0.99f)
             {
-            
+                switch (what)
+                {
+                    case "in":
+                        //SceneManager.LoadScene("");
+                        break;
+                    case "out":
+                        Application.Quit();
+                        break;
+                }
                 break;
             }
         }
