@@ -40,17 +40,16 @@ public class Slot : MonoBehaviour
         {
             case ItemEnum.Cola:
                 StatManager.instance.PlayerBoost(boostSpeed, boostTime);
-                audioSource.Play();
                 break;
             case ItemEnum.Juice:
                 Debug.Log(plusWillPower);
                 StatManager.instance.willPower += plusWillPower;
-                audioSource.Play();
                 break;
             case ItemEnum.light:
-                GameObject[] collect = GameObject.FindGameObjectsWithTag("Collection");
+                CollectManager.instance.CollectionLight();
                 break;
         }
+        audioSource.Play();
 
         SlotReset();
     }
