@@ -25,6 +25,7 @@ public class Menucontroller : MonoBehaviour
     private Button _MuteButton; // 조용히 버튼
     private Button _ExitNoButton; // 나가기 안에 있는 No라는 선택지 버튼
     private Button _exitYesButton; //나가기 안에 있는 yes라는 버튼
+    private Button _settingBack;
 
     private VisualElement _quit;//바텀시트의 부모
     private VisualElement _quitSheet; //Quit화면 위로 올라가기
@@ -38,7 +39,7 @@ public class Menucontroller : MonoBehaviour
     {
         var _doc = GetComponent<UIDocument>();
 
-        _settingPanel = _doc.rootVisualElement.Q<VisualElement>("Settingawd");
+        _settingPanel = _doc.rootVisualElement.Q<VisualElement>("Setting");
 
         #region 플레이 버튼
         _playButton = _doc.rootVisualElement.Q<Button>("PlayButton"); //플레이 버튼
@@ -61,6 +62,9 @@ public class Menucontroller : MonoBehaviour
 
         _exitYesButton = _doc.rootVisualElement.Q<Button>("YesButton"); //나가기 버튼 안에 Yes버튼
         _exitYesButton.clicked += ExitButton_Yes;
+
+        _settingBack = _doc.rootVisualElement.Q<Button>("SettingBack");
+        _settingBack.clicked += SettingBack;
         #endregion
         _MuteButton = _doc.rootVisualElement.Q<Button>("MuteButton");
 
@@ -70,6 +74,12 @@ public class Menucontroller : MonoBehaviour
         _quitSheet = _doc.rootVisualElement.Q<VisualElement>("QuitSheet");
 
 
+    }
+
+    private void SettingBack()
+    {
+        _settingPanel.AddToClassList("on");
+        _panelWrapper.RemoveFromClassList("out");
     }
 
     private void Update()
