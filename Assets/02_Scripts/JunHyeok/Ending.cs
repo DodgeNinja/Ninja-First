@@ -7,6 +7,7 @@ public class Ending : MonoBehaviour
     [Header("Reference")]
     public GameObject player;
     private Animator animator;
+    public bool gameOver = false;
 
     private void Awake()
     {
@@ -22,5 +23,6 @@ public class Ending : MonoBehaviour
     {
         player.SetActive(false);
         animator.SetBool("Move", true);
+        gameOver = true;
     }
 }

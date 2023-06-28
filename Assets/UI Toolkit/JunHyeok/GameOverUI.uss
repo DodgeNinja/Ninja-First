@@ -1,6 +1,9 @@
-#GameOverPanel.on {
-    opacity: 1;
+.on {
+    top: -100%;
+    transition-property: top;
+    transition-duration: 0.5s;
 }
 
-#Restart {
+.on.off {
+    top: 10%;
 }
