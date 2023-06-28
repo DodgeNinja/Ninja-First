@@ -11,11 +11,11 @@ using UnityEngine.SceneManagement;
 public class Menucontroller : MonoBehaviour
 {
     //[SerializeField]
-    private VisualTreeAsset _settingsButtonsTemplate;
     private VisualElement _panelWrapper;
     private VisualElement _endpanel;
     private VisualElement _settingPanel;
 
+    private Slider _backGroundSound;
 
     private UIDocument _doc;
 
@@ -30,13 +30,15 @@ public class Menucontroller : MonoBehaviour
     private VisualElement _quitSheet; //Quit화면 위로 올라가기
     [SerializeField] private UnityEngine.UI.Image _image;
 
+    private float _backGroundSoundValue;
+
 
 
     private void Awake()
     {
         var _doc = GetComponent<UIDocument>();
 
-        _settingPanel = _doc.rootVisualElement.Q<VisualElement>("Setting");
+        _settingPanel = _doc.rootVisualElement.Q<VisualElement>("Settingawd");
 
         #region 플레이 버튼
         _playButton = _doc.rootVisualElement.Q<Button>("PlayButton"); //플레이 버튼
@@ -62,11 +64,20 @@ public class Menucontroller : MonoBehaviour
         #endregion
         _MuteButton = _doc.rootVisualElement.Q<Button>("MuteButton");
 
-        //_quit = _doc.rootVisualElement.Q<VisualElement>("Quit-Bottom");
-        //_quit.style.display = DisplayStyle.None;
+        _backGroundSound = _doc.rootVisualElement.Q<Slider>("BackGroundAudio");
 
 
         _quitSheet = _doc.rootVisualElement.Q<VisualElement>("QuitSheet");
+
+
+    }
+
+    private void Update()
+    {
+        _backGroundSoundValue = (float)_backGroundSound.value / 100;
+        PlayerPrefs.SetFloat("BackGroundSound", _backGroundSoundValue);
+        _backGroundSoundValue = PlayerPrefs.GetFloat("BackGroundSound");
+
 
     }
 
