@@ -11,6 +11,8 @@ public class StatManager : MonoBehaviour
 
     private PlayerMovement playerMovement;
 
+    private Ending ending;
+
     [Header("Stat")]
     [SerializeField] private TextMeshProUGUI willPowerText;
     public int willPower = 100;
@@ -20,6 +22,7 @@ public class StatManager : MonoBehaviour
         instance = this;
 
         playerMovement = FindObjectOfType<PlayerMovement>();
+        ending = FindObjectOfType<Ending>();
     }
 
     void Update()
@@ -40,6 +43,7 @@ public class StatManager : MonoBehaviour
         if (willPower <= 0)
         {
 
+            ending.End();
         }
     }
 }

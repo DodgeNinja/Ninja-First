@@ -1,0 +1,6 @@
+#GameOverPanel.on {
+    opacity: 1;
+}
+
+#Restart {
+}
