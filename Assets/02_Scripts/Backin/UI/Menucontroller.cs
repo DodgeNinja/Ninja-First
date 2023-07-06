@@ -73,7 +73,7 @@ public class Menucontroller : MonoBehaviour
         _MuteButton = _doc.rootVisualElement.Q<Button>("MuteButton");
 
         _backGroundSound = _doc.rootVisualElement.Q<Slider>("BackGroundAudio");
-
+        _audioSource.volume = _backGroundSound.value;
 
         _quitSheet = _doc.rootVisualElement.Q<VisualElement>("QuitSheet");
 
@@ -88,14 +88,15 @@ public class Menucontroller : MonoBehaviour
 
     private void Update()
     {
-        _audioSource.volume = _backGroundSound.value;
-        _backGroundSoundValue = (float)_backGroundSound.value / 100;
-        PlayerPrefs.SetFloat("BackGroundSound", _backGroundSoundValue);
-        _audioSource.volume = _backGroundSoundValue = PlayerPrefs.GetFloat("BackGroundSound");
+        SetSound();
 
 
     }
-
+    private void SetSound()
+    {
+        PlayerPrefs.SetFloat("BackGroundSound", (float)_backGroundSound.value / 100);
+        _audioSource.volume = PlayerPrefs.GetFloat("BackGroundSound");
+    }
     private void ExitButton_Yes()
     {
         _endpanel.AddToClassList("on");
@@ -146,7 +147,7 @@ public class Menucontroller : MonoBehaviour
                 switch (what)
                 {
                     case "in":
-                        //SceneManager.LoadScene("");
+                        SceneManager.LoadScene("Game");
                         break;
                     case "out":
                         Application.Quit();
