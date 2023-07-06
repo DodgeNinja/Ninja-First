@@ -10,6 +10,8 @@ using UnityEngine.SceneManagement;
 
 public class Menucontroller : MonoBehaviour
 {
+
+    private AudioSource _audioSource;
     //[SerializeField]
     private VisualElement _panelWrapper;
     private VisualElement _endpanel;
@@ -37,6 +39,8 @@ public class Menucontroller : MonoBehaviour
 
     private void Awake()
     {
+        _audioSource = GetComponent<AudioSource>();
+
         var _doc = GetComponent<UIDocument>();
 
         _settingPanel = _doc.rootVisualElement.Q<VisualElement>("Setting");
@@ -84,9 +88,10 @@ public class Menucontroller : MonoBehaviour
 
     private void Update()
     {
+        _audioSource.volume = _backGroundSound.value;
         _backGroundSoundValue = (float)_backGroundSound.value / 100;
         PlayerPrefs.SetFloat("BackGroundSound", _backGroundSoundValue);
-        _backGroundSoundValue = PlayerPrefs.GetFloat("BackGroundSound");
+        _audioSource.volume = _backGroundSoundValue = PlayerPrefs.GetFloat("BackGroundSound");
 
 
     }
