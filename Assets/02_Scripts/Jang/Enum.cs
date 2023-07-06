@@ -8,6 +8,7 @@ namespace Enum
     {
         Null,
         Cola,
-        Juice
+        Juice,
+        light
     }
 }

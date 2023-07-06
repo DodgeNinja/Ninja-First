@@ -43,6 +43,15 @@ public class CollectManager : MonoBehaviour
         }
     }
 
+    public void CollectionLight()
+    {
+        GameObject[] collects = GameObject.FindGameObjectsWithTag("Collection");
+        foreach (GameObject collect in collects)
+        {
+            collect.GetComponent<Collider>().transform.GetChild(0).GetComponent<ParticleSystem>().Play();
+        }
+    }
+
     public void OnColl(Collection col)
     {
         switch (col)
