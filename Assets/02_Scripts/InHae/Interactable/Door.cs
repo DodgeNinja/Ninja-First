@@ -37,19 +37,17 @@ public class Door : Interactable
     {
         if (transform.localScale.x > 0)
         {
-            while(Mathf.Rad2Deg * transform.rotation.y <= 40)
-                transform.Rotate(new Vector3(0, 1, 0) * Time.deltaTime * speed);
+            transform.Rotate(new Vector3(0, 1, 0) * Time.deltaTime * speed);
         }
 
         if (transform.localScale.x < 0)
         {
-            while(Mathf.Rad2Deg * transform.rotation.y >= -40)
-                transform.Rotate(new Vector3(0, -1, 0) * Time.deltaTime * speed);
+            transform.Rotate(new Vector3(0, -1, 0) * Time.deltaTime * speed);
         }
     }
 
     void BackRader()
     { 
-
+        
     }
 }
