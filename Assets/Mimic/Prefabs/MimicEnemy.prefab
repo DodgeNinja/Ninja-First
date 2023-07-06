@@ -21,7 +21,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &8675915457954794082
 Transform:
   m_ObjectHideFlags: 0
@@ -67,7 +67,7 @@ MonoBehaviour:
   minGrowCoef: 4.5
   maxGrowCoef: 6.5
   newLegCooldown: 0.3
-  velocity: {x: -0.78300446, y: 0, z: 0.4399932}
+  velocity: {x: 0.106884435, y: 0, z: 0.31727314}
 --- !u!82 &593317857
 AudioSource:
   m_ObjectHideFlags: 0

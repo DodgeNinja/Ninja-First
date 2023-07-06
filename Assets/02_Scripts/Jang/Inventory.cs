@@ -8,10 +8,11 @@ public class Inventory : MonoBehaviour
 {
     [SerializeField] private Slot[] slots;
     [SerializeField] private GameObject inventory;
+    PlayerMovement playerMovement;
 
     private void Awake()
     {
-        
+        playerMovement = FindObjectOfType<PlayerMovement>();
     }
 
     private void Update()
@@ -23,11 +24,13 @@ public class Inventory : MonoBehaviour
                 case true:
                     Cursor.lockState = CursorLockMode.Locked;
                     Cursor.visible = false;
+                    playerMovement.canMove = true;
                     inventory.SetActive(false);
                     break;
                 case false:
                     Cursor.lockState = CursorLockMode.None;
                     Cursor.visible = true;
+                    playerMovement.canMove = false;
                     inventory.SetActive(true);
                     break;
             }

@@ -112,7 +112,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coll: 0
-  radius: 3
+  radius: 2
 --- !u!1001 &9083454873289375152
 PrefabInstance:
   m_ObjectHideFlags: 0
