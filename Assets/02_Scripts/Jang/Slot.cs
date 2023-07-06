@@ -16,15 +16,15 @@ public class Slot : MonoBehaviour
     public float boostTime;
     public int plusWillPower;
 
-    private Image image;
+    public Image image;
     private AudioSource audioSource;
 
     private void Awake()
     {
         image = gameObject.GetComponent<Image>();
         audioSource = GameObject.FindWithTag("Player").GetComponent<AudioSource>();
-        itemSprite = nullSprite;
-        nullSprite = itemSprite;
+        //itemSprite = nullSprite;
+        //nullSprite = itemSprite;
     }
 
     private void Update()
@@ -40,16 +40,18 @@ public class Slot : MonoBehaviour
         {
             case ItemEnum.Cola:
                 StatManager.instance.PlayerBoost(boostSpeed, boostTime);
+                audioSource.Play();
                 break;
             case ItemEnum.Juice:
                 Debug.Log(plusWillPower);
                 StatManager.instance.willPower += plusWillPower;
+                audioSource.Play();
                 break;
             case ItemEnum.light:
                 CollectManager.instance.CollectionLight();
+                audioSource.Play();
                 break;
         }
-        audioSource.Play();
 
         SlotReset();
     }

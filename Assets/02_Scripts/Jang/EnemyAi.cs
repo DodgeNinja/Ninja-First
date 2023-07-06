@@ -50,7 +50,7 @@ public class EnemyAi : MonoBehaviour
         else
         {
             state = State.idle;
-            IdleMovement();
+            //IdleMovement();
         }
     }
 
