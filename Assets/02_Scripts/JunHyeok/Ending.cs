@@ -5,24 +5,28 @@ using UnityEngine;
 public class Ending : MonoBehaviour
 {
     [Header("Reference")]
-    public GameObject player;
-    private Animator animator;
+    public PlayerMovement playerMove;
+    public GameObject canvas;
     public bool gameOver = false;
 
     private void Awake()
     {
-        animator = GetComponent<Animator>();
     }
 
     private void Update()
     {
-        //End();
+        if (Input.GetKeyDown(KeyCode.P))
+            End();
     }
 
     public void End()
     {
-        player.SetActive(false);
-        animator.SetBool("Move", true);
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        canvas.SetActive(false);
+        playerMove.enabled = false;
+        
+        
         gameOver = true;
     }
 }

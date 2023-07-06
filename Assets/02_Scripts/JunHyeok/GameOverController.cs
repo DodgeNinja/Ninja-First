@@ -13,6 +13,7 @@ public class GameOverController : MonoBehaviour
     private void Awake()
     {
         _uiDocument = GetComponent<UIDocument>();
+        ending = FindObjectOfType<Ending>();
     }
 
     private void OnEnable()
@@ -30,8 +31,14 @@ public class GameOverController : MonoBehaviour
 
         btnQuit.RegisterCallback<ClickEvent>(e =>
         {
-            Application.Quit();
+            GameOver();
         });
+    }
+
+    private void GameOver()
+    {
+        Application.Quit();
+        Debug.Log("GameOver");
     }
 
     private void Update()
