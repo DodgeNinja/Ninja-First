@@ -7,6 +7,7 @@ public class Ending : MonoBehaviour
     [Header("Reference")]
     public GameObject player;
     private Animator animator;
+    public bool gameOver = false;
 
     private void Awake()
     {
@@ -15,16 +16,13 @@ public class Ending : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            animator.SetBool("Move", true);
-            //End();
-        }
+        //End();
     }
 
-    private void End()
+    public void End()
     {
         player.SetActive(false);
-        
+        animator.SetBool("Move", true);
+        gameOver = true;
     }
 }

@@ -9,11 +9,8 @@ public class Item : MonoBehaviour
     public List<GameObject> itemp2 = new List<GameObject>();
     public List<GameObject> itemp1 = new List<GameObject>();
     
-    
-    // Start is called before the first frame update
     private void Awake()
     {
-        Debug.Log(transform.position);
         for(int i = 0; i < 20; i++)
         {
             GameObject cake = Instantiate(item2[Random.Range(0, item2.Length)], Vector3.zero, Quaternion.identity, transform);

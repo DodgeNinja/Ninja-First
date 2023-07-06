@@ -1,0 +1,9 @@
+.on {
+    top: -100%;
+    transition-property: top;
+    transition-duration: 0.5s;
+}
+
+.on.off {
+    top: 10%;
+}

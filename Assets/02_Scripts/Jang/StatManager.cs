@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class StatManager : MonoBehaviour
@@ -9,6 +10,8 @@ public class StatManager : MonoBehaviour
     public static StatManager instance;
 
     private PlayerMovement playerMovement;
+
+    private Ending ending;
 
     [Header("Stat")]
     [SerializeField] private TextMeshProUGUI willPowerText;
@@ -19,11 +22,12 @@ public class StatManager : MonoBehaviour
         instance = this;
 
         playerMovement = FindObjectOfType<PlayerMovement>();
+        ending = FindObjectOfType<Ending>();
     }
 
     void Update()
     {
-        willPowerText.text = $"ÀÇÁö·Â : {willPower}";
+        willPowerText.text = $"WillPower : {willPower}";
         GameOver();
     }
 
@@ -39,6 +43,7 @@ public class StatManager : MonoBehaviour
         if (willPower <= 0)
         {
 
+            ending.End();
         }
     }
 }
