@@ -1,39 +1,48 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
 public class GameOverController : MonoBehaviour
 {
-    private UIDocument document;
+    private Ending ending;
+    private UIDocument _uiDocument;
     private VisualElement GameOverPanel;
-    private Button restart;
-    private Button quit;
 
     private void Awake()
     {
-        document = GetComponent<UIDocument>();
-        GameOverPanel = document.rootVisualElement.Q("GameOverPanel");
-
-        restart = document.rootVisualElement.Q<Button>("Restart");
-        restart.clicked += Restart;
-
-        quit = document.rootVisualElement.Q<Button>("Quit");
-        quit.clicked += Quit;
+        _uiDocument = GetComponent<UIDocument>();
     }
 
-    private void GameOver()
+    private void OnEnable()
     {
-        GameOverPanel.AddToClassList("on");
+        VisualElement root = _uiDocument.rootVisualElement;
+
+        Button btn = root.Q<Button>("Restart");
+
+        btn.RegisterCallback<ClickEvent>(e =>
+        {
+            SceneManager.LoadScene("Start");
+        });
+
+        Button btnQuit = root.Q<Button>("Quit");
+
+        btnQuit.RegisterCallback<ClickEvent>(e =>
+        {
+            Application.Quit();
+        });
     }
 
-    private void Restart()
+    private void Update()
     {
-        GameOverPanel.RemoveFromClassList("on");
-    }
+        if (ending.gameOver == true)
+        {
+            VisualElement root = _uiDocument.rootVisualElement;
 
-    private void Quit()
-    {
-        Application.Quit();
+            VisualElement popupWindow = root.Q("GameOverPanel");
+
+            popupWindow.AddToClassList("off");
+        }
     }
 }
