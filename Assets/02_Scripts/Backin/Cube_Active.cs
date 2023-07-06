@@ -5,6 +5,18 @@ using UnityEngine;
 public class Cube_Active : MonoBehaviour
 {
     [SerializeField] ItemData itemData;
+    float radius = 1;
+
+    void Update()
+    {
+        if (Physics.OverlapSphere(transform.position, radius, LayerMask.GetMask("Player")).Length > 0)
+        {
+            Inventory inventory = FindObjectOfType<Inventory>();
+
+            inventory.PlusItem(itemData);
+            gameObject.SetActive(false);
+        }
+    }
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -16,5 +28,10 @@ public class Cube_Active : MonoBehaviour
             gameObject.SetActive(false);
         }
     }
-   
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(transform.position, radius);
+    }
+
 }

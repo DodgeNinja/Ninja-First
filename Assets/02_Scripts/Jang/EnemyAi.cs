@@ -92,7 +92,6 @@ public class EnemyAi : MonoBehaviour
     void PlayerHurt()
     {
         float dieDistance = Vector3.Distance(transform.position, player.transform.position);
-        Debug.Log(dieDistance);
         if (dieDistance <= 1.1f)
         {
             state = State.idle;
