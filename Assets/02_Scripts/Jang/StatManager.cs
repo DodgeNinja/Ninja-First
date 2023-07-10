@@ -27,7 +27,7 @@ public class StatManager : MonoBehaviour
 
     void Update()
     {
-        willPowerText.text = $"WillPower : {willPower}";
+        willPowerText.text = $"Sanity : {willPower}";
         GameOver();
     }
 

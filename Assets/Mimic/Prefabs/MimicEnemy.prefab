@@ -67,7 +67,7 @@ MonoBehaviour:
   minGrowCoef: 4.5
   maxGrowCoef: 6.5
   newLegCooldown: 0.3
-  velocity: {x: 0.106884435, y: 0, z: 0.31727314}
+  velocity: {x: -0.28232566, y: 0, z: -0.2686407}
 --- !u!82 &593317857
 AudioSource:
   m_ObjectHideFlags: 0
@@ -230,7 +230,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   idleRadius: 20
-  maxRangeDistance: 5
+  maxRangeDistance: 12
   playerMask:
     serializedVersion: 2
     m_Bits: 64

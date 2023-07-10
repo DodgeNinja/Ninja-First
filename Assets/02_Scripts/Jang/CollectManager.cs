@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Playables;
 
 public enum Collection
 {
@@ -13,6 +14,10 @@ public enum Collection
 public class CollectManager : MonoBehaviour
 {
     public static CollectManager instance;
+
+    public PlayerMovement playerMove;
+    public GameObject canvas;
+    public PlayableDirector playerDirector;
 
     [Header("Text")]
     [SerializeField] private TextMeshProUGUI coll1Text;
@@ -40,6 +45,12 @@ public class CollectManager : MonoBehaviour
         if (maxLength >= collectLength)
         {
             //엔딩스크립트 enable 켜주기
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+            canvas.SetActive(false);
+            playerMove.enabled = false;
+
+            playerDirector.Play();
         }
     }
 
