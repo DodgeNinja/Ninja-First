@@ -42,7 +42,7 @@ public class EnemyAi : MonoBehaviour
     {
         Vector3 center = transform.position;
         Vector3 dir = player.transform.position - transform.position;
-        if (PlayerCheck(center, dir, maxRangeDistance) && Mathf.Abs(dir.y) < 2.5f)
+        if (PlayerCheck(center, dir, maxRangeDistance))
         {
             state = State.tracking;
             TrackingMovement();

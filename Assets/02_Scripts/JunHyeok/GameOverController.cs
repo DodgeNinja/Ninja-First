@@ -24,7 +24,7 @@ public class GameOverController : MonoBehaviour
 
         btn.RegisterCallback<ClickEvent>(e =>
         {
-            SceneManager.LoadScene("Start");
+            SceneManager.LoadScene("Game");
         });
 
         Button btnQuit = root.Q<Button>("Quit");

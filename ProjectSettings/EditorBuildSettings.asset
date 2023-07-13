@@ -6,15 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/01_Scenes/MainScene/StartScene.unity
-    guid: 9fc0d4010bbf28b4594072e72b8655ab
+    path: Assets/01_Scenes/BackinUI.unity
+    guid: cb005c7b5c7b0294cbc501ef0a679ea9
   - enabled: 1
     path: Assets/01_Scenes/MainScene/Game.unity
-    guid: e2acbabbfd0000d4ea355ef222750a61
-  - enabled: 1
+    guid: a59b729fc4337d643b70071df7574d11
+  - enabled: 0
     path: Assets/01_Scenes/MainScene/GameOver.unity
     guid: 76c7f784f9110ca44a833e0d6ebb37ad
-  - enabled: 1
-    path: Assets/01_Scenes/MainScene/Gay.unity
-    guid: b609db62c577de2468d20701f6aa520f
   m_configObjects: {}
