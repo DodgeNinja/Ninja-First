@@ -13,7 +13,7 @@ namespace MimicSpace
         public int numberOfLegs = 5;
         [Tooltip("The number of splines per leg")]
         [Range(1, 10)]
-        public int partsPerLeg = 4;
+        public int partsPerLeg = 2;
         int maxLegs;
 
         public int legCount;
@@ -31,12 +31,12 @@ namespace MimicSpace
         [Tooltip("Leg placement radius offset")]
         public float newLegRadius = 3;
 
-        public float minLegDistance = 4.5f;
-        public float maxLegDistance = 6.3f;
+        public float minLegDistance = 4f;
+        public float maxLegDistance = 6f;
 
         [Range(2, 50)]
         [Tooltip("Number of spline samples per legpart")]
-        public int legResolution = 40;
+        public int legResolution = 20;
 
         [Tooltip("Minimum lerp coeficient for leg growth smoothing")]
         public float minGrowCoef = 4.5f;
