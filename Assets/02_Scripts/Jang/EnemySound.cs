@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class EnemySound : MonoBehaviour
 {
-    [SerializeField] private AudioSource enemySound;
     [SerializeField] private float sountRadius;
     [SerializeField] private LayerMask playerMask;
 
@@ -25,7 +24,6 @@ public class EnemySound : MonoBehaviour
 
         if (soundRange.Length > 0 && !check)
         {
-            enemySound.Play();
             check = true;
         }
         else if (soundRange.Length == 0)

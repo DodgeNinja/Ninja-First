@@ -19,23 +19,29 @@ public class SoundManager : MonoBehaviour
 
     private void SoundRange()
     {
+        var soundRange2 = Physics.OverlapSphere(transform.position, sountRadius, enemyMask);
         var soundRange = Physics.OverlapBox(transform.position, new Vector3(sountRadius, 2.5f,
             sountRadius), Quaternion.identity, enemyMask);
 
         //var soundRange = Physics.OverlapSphere(transform.position, sountRadius,
         //enemyMask);
-
-        if (soundRange.Length != 0 && !check)
+        Debug.Log(soundRange2.Length);
+        if (soundRange2.Length != 0 && !check)
         {
             sound.clip = enemySound;
             sound.Play();
             check = true;
         }
-        else if (soundRange.Length == 0 && check)
+        else if (soundRange2.Length == 0 && check)
         {
             sound.clip = normalSound;
             sound.Play();
             check = false;
         }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(transform.position, sountRadius);
     }
 }
